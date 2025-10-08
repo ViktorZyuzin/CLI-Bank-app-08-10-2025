@@ -14,7 +14,7 @@ class ATMService {
         console.log('\n=== БАНКОМАТ ===');
         
         const login = await this.question('Введите логин: ');
-        const pin = await this.question('Введите PIN (4 цифры): ');
+        const pin = await this.question('Введите PIN (4 цифры): ', { hideEchoBack: true });
 
         this.currentUser = this.authService.authenticate(login, pin);
         

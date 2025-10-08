@@ -68,7 +68,7 @@ class BankService {
         console.log('\n--- Авторизация ---');
         
         const login = await this.question('Введите логин: ');
-        const pin = await this.question('Введите PIN: ');
+        const pin = await this.question('Введите PIN: ', { hideEchoBack: true });
 
         this.currentUser = this.authService.authenticate(login, pin);
         
