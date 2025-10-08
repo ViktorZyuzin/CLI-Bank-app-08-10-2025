@@ -6,7 +6,8 @@ class ATMService {
         this.currentUser = null;
         this.rl = readline.createInterface({
             input: process.stdin,
-            output: process.stdout
+            output: process.stdout,
+            terminal: false
         });
     }
 

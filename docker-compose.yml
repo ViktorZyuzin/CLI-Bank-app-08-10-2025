@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  atm-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: atm-cli-app
+    stdin_open: true    # -i option
+    tty: true           # -t option
+    volumes:
+      - ./data:/app/data  # для сохранения данных между запусками (опционально)
+    environment:
+      - NODE_ENV=production
+      - APP_PORT=3000
+    restart: unless-stopped
+
+  # Дополнительный сервис для разработки (опционально)
+  atm-app-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev  # если нужен отдельный Dockerfile для разработки
+    container_name: atm-cli-app-dev
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./src:/app/src           # монтирование исходного кода для hot-reload
+      - ./package.json:/app/package.json
+    environment:
+      - NODE_ENV=development
+      - DEBUG=app:*
+    command: npm run dev
+    profiles: ["dev"]  # запускается только с указанием профиля
+
+  # Сервис для тестирования (опционально)
+  atm-app-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: atm-cli-app-test
+    environment:
+      - NODE_ENV=test
+    command: npm test
+    profiles: ["test"]

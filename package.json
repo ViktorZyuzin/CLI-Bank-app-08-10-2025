@@ -5,12 +5,23 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "node --watch src/app.js"
+    "dev": "node --watch src/app.js",
+    "test": "echo \"No tests specified\" && exit 0",
+    "docker:build": "docker build -t atm-app .",
+    "docker:run": "docker run -it atm-app",
+    "docker:compose": "docker-compose up",
+    "docker:compose:dev": "docker-compose --profile dev up",
+    "docker:compose:test": "docker-compose --profile test up"
   },
   "keywords": ["cli", "atm", "bank", "javascript"],
   "author": "Developer",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
   "engines": {
     "node": ">=18.0.0"
   }
