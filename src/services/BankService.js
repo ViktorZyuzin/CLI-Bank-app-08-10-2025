@@ -89,7 +89,7 @@ class BankService {
             console.log('3 - Снять денег');
             console.log('4 - История операций');
             console.log('5 - Информация о счете');
-            console.log('0 - Вернуться в начало');
+            console.log('0 - Вернуться назад');
 
             const choice = await this.question('Выберите действие: ');
 
