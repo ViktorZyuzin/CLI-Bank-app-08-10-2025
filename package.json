@@ -1,0 +1,17 @@
+{
+  "name": "atm-cli-app",
+  "version": "1.0.0",
+  "description": "CLI application for ATM and Bank operations",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js"
+  },
+  "keywords": ["cli", "atm", "bank", "javascript"],
+  "author": "Developer",
+  "license": "MIT",
+  "dependencies": {},
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

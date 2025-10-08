@@ -4,7 +4,7 @@ class AuthService {
     constructor() {
         this.users = new Map();
         // Добавляем тестового пользователя
-        this.addUser('test', 'Test User', '1234', 1000);
+        this.addUser('test', 'Test User', '1234', 100000);
     }
 
     addUser(login, name, pin, initialBalance = 0) {
